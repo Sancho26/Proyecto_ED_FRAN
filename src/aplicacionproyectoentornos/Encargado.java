@@ -32,6 +32,7 @@ public class Encargado extends javax.swing.JFrame {
         ventas = new javax.swing.JButton();
         registro = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
+        inventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,8 +40,18 @@ public class Encargado extends javax.swing.JFrame {
         jlabel1.setText("ENCARGADO: Elige sección");
 
         compras.setText("Compras");
+        compras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comprasActionPerformed(evt);
+            }
+        });
 
         ventas.setText("Ventas");
+        ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventasActionPerformed(evt);
+            }
+        });
 
         registro.setText("Registrar nuevo socio");
         registro.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +64,13 @@ public class Encargado extends javax.swing.JFrame {
         cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarActionPerformed(evt);
+            }
+        });
+
+        inventario.setText("Inventario");
+        inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioActionPerformed(evt);
             }
         });
 
@@ -70,7 +88,8 @@ public class Encargado extends javax.swing.JFrame {
                     .addComponent(registro, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(compras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(291, 291, 291))
         );
         layout.setVerticalGroup(
@@ -84,21 +103,39 @@ public class Encargado extends javax.swing.JFrame {
                 .addComponent(ventas)
                 .addGap(18, 18, 18)
                 .addComponent(registro)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(inventario)
+                .addGap(30, 30, 30)
                 .addComponent(cerrar)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
-        // TODO add your handling code here:
+        Registro_socio reg = new Registro_socio();
+        reg.setVisible(true);
     }//GEN-LAST:event_registroActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
         dispose();
     }//GEN-LAST:event_cerrarActionPerformed
+
+    private void comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprasActionPerformed
+        Compras com = new Compras();
+        com.setVisible(true);
+    }//GEN-LAST:event_comprasActionPerformed
+
+    private void ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasActionPerformed
+        Ventas ven = new Ventas();
+        ven.setVisible(true);
+    }//GEN-LAST:event_ventasActionPerformed
+
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
+        Inventario inv = new Inventario();
+        inv.setVisible(true);
+    }//GEN-LAST:event_inventarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +175,7 @@ public class Encargado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cerrar;
     private javax.swing.JButton compras;
+    private javax.swing.JButton inventario;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JButton registro;
     private javax.swing.JButton ventas;

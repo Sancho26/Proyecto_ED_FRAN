@@ -143,11 +143,10 @@ public class Menu extends javax.swing.JFrame {
 
             String password_cadena = new String(passwordArray); //Para pasar los carácteres a un String para poder compararlo y validar el inicio de sesión
             String usu_app = usuario.getText();
-            System.out.println("Usuario: " + usu_app + " Contraseña: " + password_cadena);
 
             String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
-            String user = "root";
-            String pass = "";
+            String user = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
+            String pass = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
             connection = DriverManager.getConnection(url, user, pass);
 
             Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -162,9 +161,7 @@ public class Menu extends javax.swing.JFrame {
 
                 int tipo = Integer.parseInt(tipo_str);
 
-                System.out.println("Tipo: " + tipo);
-
-   
+    
                 if (tipo == 1) {
                     Encargado enc = new Encargado();
                     enc.setVisible(true);
@@ -175,11 +172,13 @@ public class Menu extends javax.swing.JFrame {
       
                 usuario.setText(null);
                 password.setText(null);
+           
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
                 usuario.setText(null);
                 password.setText(null);
             }
+            
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }

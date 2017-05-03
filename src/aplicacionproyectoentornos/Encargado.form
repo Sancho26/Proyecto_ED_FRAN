@@ -35,6 +35,7 @@
                   <Component id="ventas" alignment="0" max="32767" attributes="0"/>
                   <Component id="compras" alignment="0" max="32767" attributes="0"/>
                   <Component id="cerrar" alignment="0" max="32767" attributes="0"/>
+                  <Component id="inventario" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
           </Group>
@@ -51,9 +52,11 @@
               <Component id="ventas" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="registro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Component id="inventario" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="cerrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="106" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,11 +74,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Compras"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ventas">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ventas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ventasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="registro">
       <Properties>
@@ -91,6 +100,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="inventario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Inventario"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inventarioActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
