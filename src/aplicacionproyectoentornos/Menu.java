@@ -58,6 +58,12 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+
         jLabel1.setText("Usuario");
 
         usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
             
             String password_cadena = new String(passwordArray); //Para pasar los carácteres a un String para poder compararlo y validar el inicio de sesión
             String usu_app = usuario.getText();
-            
+            System.out.println("Usuario: " + usu_app + " Contraseña: " + password_cadena);
             
             String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
             String user = "root";
@@ -146,9 +152,13 @@ public class Menu extends javax.swing.JFrame {
             connection = DriverManager.getConnection(url, user, pass);
 
             Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String query = "SELECT IFNULL(Tipo, '0') FROM usuarios WHERE Usuario = '" + usu_app +"' AND Password = '" + password_cadena + "'"; 
+            String query = "SELECT Tipo FROM usuarios WHERE Usuario = '" + usu_app +"' AND Password = '" + password_cadena + "'"; 
             r = s.executeQuery(query);
-            r.first();
+            
+            if(r.next()){ //Este if está creado para evitar el error de resultset vacío
+            
+                r.first();
+           
             String tipo = r.getString("Tipo");
             
             
@@ -176,19 +186,26 @@ public class Menu extends javax.swing.JFrame {
                 Dependiente dep = new Dependiente();
                 dep.setVisible(true);
             }
-            else {
+            /*else {
                 JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
-            }
+            }*/
             usuario.setText(null);
             password.setText(null);
-        } catch (SQLException ex) {
+        }
+            else{
+                JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
+            }} catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+         
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_cerrarActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
 
     /**
      * @param args the command line arguments
