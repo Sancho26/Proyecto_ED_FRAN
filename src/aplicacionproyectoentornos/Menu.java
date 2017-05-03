@@ -23,11 +23,10 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    
     static public ResultSet r;
-    
+
     static public Connection connection;
-    
+
     public Menu() {
         initComponents();
     }
@@ -139,66 +138,53 @@ public class Menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            
+
             char passwordArray[] = password.getPassword(); //Para sacar los carácteres del array del pasword
-            
+
             String password_cadena = new String(passwordArray); //Para pasar los carácteres a un String para poder compararlo y validar el inicio de sesión
             String usu_app = usuario.getText();
             System.out.println("Usuario: " + usu_app + " Contraseña: " + password_cadena);
-            
+
             String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
             String user = "root";
             String pass = "";
             connection = DriverManager.getConnection(url, user, pass);
 
             Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String query = "SELECT Tipo FROM usuarios WHERE Usuario = '" + usu_app +"' AND Password = '" + password_cadena + "'"; 
+            String query = "SELECT Tipo FROM usuarios WHERE Usuario = '" + usu_app + "' AND Password = '" + password_cadena + "'";
             r = s.executeQuery(query);
-            
-            if(r.next()){ //Este if está creado para evitar el error de resultset vacío
-            
+
+            if (r.next()) { //Este if está creado para evitar el error de resultset vacío
+
                 r.first();
-           
-            String tipo = r.getString("Tipo");
-            
-            
-            
-            //String usu_dependiente = "SELECT Usuario FROM Usuarios WHERE Tipo = 2";
-            //String pass_dependiente= "SELECT Password FROM Usuarios WHERE Tipo = 2";
-            
-            /*if (usuario.getText().equals(usu_encargado) && password_cadena.equals(pass_encargado)) {
-                Encargado enc = new Encargado();
-                enc.setVisible(true);
-            } else if (usuario.getText().equals(usu_dependiente) && password_cadena.equals(pass_dependiente)) {
-                Dependiente dep = new Dependiente();
-                dep.setVisible(true);
+
+                String tipo_str = r.getString("TIPO");
+
+                int tipo = Integer.parseInt(tipo_str);
+
+                System.out.println("Tipo: " + tipo);
+
+   
+                if (tipo == 1) {
+                    Encargado enc = new Encargado();
+                    enc.setVisible(true);
+                } else if (tipo == 2) {
+                    Dependiente dep = new Dependiente();
+                    dep.setVisible(true);
+                }
+      
+                usuario.setText(null);
+                password.setText(null);
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
+                usuario.setText(null);
+                password.setText(null);
             }
-            */
-            
-            if (tipo == "1"){
-                Encargado enc = new Encargado();
-                enc.setVisible(true);
-            }
-            
-            else if (tipo == "2"){
-                Dependiente dep = new Dependiente();
-                dep.setVisible(true);
-            }
-            /*else {
-                JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
-            }*/
-            usuario.setText(null);
-            password.setText(null);
-        }
-            else{
-                JOptionPane.showMessageDialog(null, "ERROR. El usuario o contraseña no son correctos.");
-            }} catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-         
+
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_cerrarActionPerformed
