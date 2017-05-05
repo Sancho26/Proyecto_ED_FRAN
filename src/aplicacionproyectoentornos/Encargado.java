@@ -33,11 +33,15 @@ public class Encargado extends javax.swing.JFrame {
         registro = new javax.swing.JButton();
         cerrar = new javax.swing.JButton();
         inventario = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jlabel1.setText("ENCARGADO: Elige sección");
+        getContentPane().add(jlabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 11, 474, -1));
 
         compras.setText("Compras");
         compras.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +49,7 @@ public class Encargado extends javax.swing.JFrame {
                 comprasActionPerformed(evt);
             }
         });
+        getContentPane().add(compras, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 122, 147, -1));
 
         ventas.setText("Ventas");
         ventas.addActionListener(new java.awt.event.ActionListener() {
@@ -52,13 +57,15 @@ public class Encargado extends javax.swing.JFrame {
                 ventasActionPerformed(evt);
             }
         });
+        getContentPane().add(ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 147, -1));
 
-        registro.setText("Registrar nuevo socio");
+        registro.setText("Registrar socio");
         registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registroActionPerformed(evt);
             }
         });
+        getContentPane().add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 147, -1));
 
         cerrar.setText("Cerrar sesión");
         cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +73,7 @@ public class Encargado extends javax.swing.JFrame {
                 cerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 288, 147, -1));
 
         inventario.setText("Inventario");
         inventario.addActionListener(new java.awt.event.ActionListener() {
@@ -73,42 +81,14 @@ public class Encargado extends javax.swing.JFrame {
                 inventarioActionPerformed(evt);
             }
         });
+        getContentPane().add(inventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 147, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registro, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(compras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(291, 291, 291))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlabel1)
-                .addGap(38, 38, 38)
-                .addComponent(compras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ventas)
-                .addGap(18, 18, 18)
-                .addComponent(registro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(inventario)
-                .addGap(30, 30, 30)
-                .addComponent(cerrar)
-                .addGap(37, 37, 37))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/fondo_app.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 760, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,6 +156,8 @@ public class Encargado extends javax.swing.JFrame {
     private javax.swing.JButton cerrar;
     private javax.swing.JButton compras;
     private javax.swing.JButton inventario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jlabel1;
     private javax.swing.JButton registro;
     private javax.swing.JButton ventas;

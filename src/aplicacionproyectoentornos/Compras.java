@@ -44,11 +44,15 @@ public class Compras extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         primera = new javax.swing.JButton();
         ultima = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("COMPRAS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 11, -1, -1));
 
         volver.setText("Volver");
         volver.addActionListener(new java.awt.event.ActionListener() {
@@ -56,110 +60,55 @@ public class Compras extends javax.swing.JFrame {
                 volverActionPerformed(evt);
             }
         });
+        getContentPane().add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 348, 93, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel2.setText("ID: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 109, -1, -1));
 
         id.setEditable(false);
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 106, 115, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("Fecha: ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 147, -1, -1));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 144, 115, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel4.setText("Producto: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 185, -1, -1));
+        getContentPane().add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 182, 115, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Cantidad: ");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 223, -1, -1));
+        getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 115, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("Precio total: ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 261, -1, -1));
+        getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 258, 115, -1));
 
         nueva.setText("Nueva");
+        getContentPane().add(nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 307, -1, -1));
 
         siguiente.setText("Siguiente");
+        getContentPane().add(siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 307, -1, -1));
 
         anterior.setText("Anterior");
+        getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 307, -1, -1));
 
         primera.setText("Primera");
+        getContentPane().add(primera, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 307, -1, -1));
 
         ultima.setText("Última");
+        getContentPane().add(ultima, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 307, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(id)
-                            .addComponent(fecha)
-                            .addComponent(producto)
-                            .addComponent(cantidad)
-                            .addComponent(precio, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(nueva)
-                        .addGap(18, 18, 18)
-                        .addComponent(siguiente)
-                        .addGap(18, 18, 18)
-                        .addComponent(anterior)
-                        .addGap(18, 18, 18)
-                        .addComponent(primera)
-                        .addGap(18, 18, 18)
-                        .addComponent(ultima))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(volver, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(199, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nueva)
-                    .addComponent(siguiente)
-                    .addComponent(anterior)
-                    .addComponent(primera)
-                    .addComponent(ultima))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addComponent(volver)
-                .addContainerGap())
-        );
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/fondo_app.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 710, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,6 +163,8 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JButton nueva;
     private javax.swing.JTextField precio;
     private javax.swing.JButton primera;
