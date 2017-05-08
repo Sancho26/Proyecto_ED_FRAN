@@ -170,8 +170,8 @@ public class Menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-
-            char passwordArray[] = password.getPassword(); //Para sacar los carácteres del array del pasword
+            
+            char passwordArray[] = password.getPassword(); 
 
             String password_cadena = new String(passwordArray); //Para pasar los carácteres a un String para poder compararlo y validar el inicio de sesión
             String usu_app = usuario.getText();
