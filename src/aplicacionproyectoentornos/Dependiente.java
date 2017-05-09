@@ -48,7 +48,7 @@ public class Dependiente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 112, 97, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 112, 130, -1));
 
         jButton2.setText("Ventas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +56,7 @@ public class Dependiente extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 153, 97, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 153, 130, -1));
 
         cerrar.setText("Cerrar sesión");
         cerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class Dependiente extends javax.swing.JFrame {
                 cerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 194, -1, -1));
+        getContentPane().add(cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 194, 130, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
@@ -79,6 +79,7 @@ public class Dependiente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Compras com = new Compras();
         com.setVisible(true);
+        com.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
@@ -88,6 +89,7 @@ public class Dependiente extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Ventas ven = new Ventas();
         ven.setVisible(true);
+        ven.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -121,6 +123,7 @@ public class Dependiente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Dependiente().setVisible(true);
+                
             }
         });
     }

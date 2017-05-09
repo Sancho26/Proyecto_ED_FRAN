@@ -37,6 +37,7 @@ public class Encargado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(0, 0));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -97,6 +98,7 @@ public class Encargado extends javax.swing.JFrame {
     private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
         Registro_socio reg = new Registro_socio();
         reg.setVisible(true);
+        reg.setLocationRelativeTo(null);
     }//GEN-LAST:event_registroActionPerformed
 
     private void cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarActionPerformed
@@ -106,16 +108,19 @@ public class Encargado extends javax.swing.JFrame {
     private void comprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comprasActionPerformed
         Compras com = new Compras();
         com.setVisible(true);
+        com.setLocationRelativeTo(null);
     }//GEN-LAST:event_comprasActionPerformed
 
     private void ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasActionPerformed
         Ventas ven = new Ventas();
         ven.setVisible(true);
+        ven.setLocationRelativeTo(null);
     }//GEN-LAST:event_ventasActionPerformed
 
     private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
         Inventario inv = new Inventario();
         inv.setVisible(true);
+        inv.setLocationRelativeTo(null);
     }//GEN-LAST:event_inventarioActionPerformed
 
     /**

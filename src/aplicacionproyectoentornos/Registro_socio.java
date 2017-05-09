@@ -44,6 +44,8 @@ public class Registro_socio extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         ultimo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        insertar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -73,21 +75,29 @@ public class Registro_socio extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("Nombre: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 155, -1, -1));
+
+        nombre.setEditable(false);
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 152, 126, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel4.setText("Apellidos: ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 193, -1, -1));
+
+        apellidos.setEditable(false);
         getContentPane().add(apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 126, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Teléfono: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 231, -1, -1));
+
+        telefono.setEditable(false);
         getContentPane().add(telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 228, 126, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("DNI: ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 269, -1, -1));
+
+        dni.setEditable(false);
         getContentPane().add(dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 266, 126, -1));
 
         nuevo.setText("Nuevo");
@@ -104,6 +114,14 @@ public class Registro_socio extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        insertar.setText("Insertar");
+        insertar.setEnabled(false);
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 80, -1));
+
+        cancelar.setText("Cancelar");
+        cancelar.setEnabled(false);
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 80, -1));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 328, -1, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/fondo_app.png"))); // NOI18N
@@ -154,8 +172,10 @@ public class Registro_socio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
     private javax.swing.JTextField apellidos;
+    private javax.swing.JButton cancelar;
     private javax.swing.JTextField dni;
     private javax.swing.JTextField id;
+    private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

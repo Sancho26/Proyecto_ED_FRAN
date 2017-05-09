@@ -5,17 +5,51 @@
  */
 package aplicacionproyectoentornos;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author AlumMati
  */
 public class Compras extends javax.swing.JFrame {
 
+    static public ResultSet r;
+
+    static public Connection connection;
+
     /**
      * Creates new form Compras
      */
     public Compras() {
-        initComponents();
+        try {
+            initComponents();
+            String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
+            String user = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
+            String pass = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
+            connection = DriverManager.getConnection(url, user, pass);
+
+            Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            String query = "SELECT * FROM Compras";
+            r = s.executeQuery(query);
+            r.first();
+
+            id.setText(r.getString("Identificador"));
+            fecha.setText(r.getString("Fecha"));
+            producto.setText(r.getString("Producto"));
+            cantidad.setText(r.getString("Cantidad"));
+            precio.setText(r.getString("Precio_total"));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -44,6 +78,8 @@ public class Compras extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         primera = new javax.swing.JButton();
         ultima = new javax.swing.JButton();
+        insertar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -73,37 +109,88 @@ public class Compras extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("Fecha: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 147, -1, -1));
+
+        fecha.setEditable(false);
         getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 144, 115, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel4.setText("Producto: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 185, -1, -1));
+        jLabel4.setText("IdProducto: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 185, 70, -1));
+
+        producto.setEditable(false);
         getContentPane().add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 182, 115, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Cantidad: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 223, -1, -1));
+
+        cantidad.setEditable(false);
         getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 115, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("Precio total: ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 261, -1, -1));
+
+        precio.setEditable(false);
         getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 258, 115, -1));
 
         nueva.setText("Nueva");
+        nueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevaActionPerformed(evt);
+            }
+        });
         getContentPane().add(nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 307, -1, -1));
 
         siguiente.setText("Siguiente");
+        siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                siguienteActionPerformed(evt);
+            }
+        });
         getContentPane().add(siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 307, -1, -1));
 
         anterior.setText("Anterior");
+        anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anteriorActionPerformed(evt);
+            }
+        });
         getContentPane().add(anterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 307, -1, -1));
 
         primera.setText("Primera");
+        primera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                primeraActionPerformed(evt);
+            }
+        });
         getContentPane().add(primera, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 307, -1, -1));
 
         ultima.setText("Última");
+        ultima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ultimaActionPerformed(evt);
+            }
+        });
         getContentPane().add(ultima, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 307, -1, -1));
+
+        insertar.setText("Insertar");
+        insertar.setEnabled(false);
+        insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 80, -1));
+
+        cancelar.setText("Cancelar");
+        cancelar.setEnabled(false);
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 80, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
@@ -117,6 +204,137 @@ public class Compras extends javax.swing.JFrame {
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         dispose();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        // TODO add your handling code here:
+        insertar.setEnabled(false);
+        cancelar.setEnabled(false);
+        primera.setEnabled(true);
+        ultima.setEnabled(true);
+        anterior.setEnabled(true);
+        siguiente.setEnabled(true);
+        volver.setEnabled(true);
+        producto.setEditable(false);
+        cantidad.setEditable(false);
+    }//GEN-LAST:event_cancelarActionPerformed
+
+    private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
+        try {
+            // TODO add your handling code here:
+            if (r.next()) {
+                id.setText(r.getString("Identificador"));
+                fecha.setText(r.getString("Fecha"));
+                producto.setText(r.getString("Producto"));
+                cantidad.setText(r.getString("Cantidad"));
+                precio.setText(r.getString("Precio_total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_siguienteActionPerformed
+
+    private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
+        try {
+            // TODO add your handling code here:
+            if (r.previous()) {
+                id.setText(r.getString("Identificador"));
+                fecha.setText(r.getString("Fecha"));
+                producto.setText(r.getString("Producto"));
+                cantidad.setText(r.getString("Cantidad"));
+                precio.setText(r.getString("Precio_total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_anteriorActionPerformed
+
+    private void primeraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primeraActionPerformed
+        try {
+            if (r.first()) {
+                id.setText(r.getString("Identificador"));
+                fecha.setText(r.getString("Fecha"));
+                producto.setText(r.getString("Producto"));
+                cantidad.setText(r.getString("Cantidad"));
+                precio.setText(r.getString("Precio_total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_primeraActionPerformed
+
+    private void ultimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ultimaActionPerformed
+        try {
+            // TODO add your handling code here:
+            if (r.last()) {
+                id.setText(r.getString("Identificador"));
+                fecha.setText(r.getString("Fecha"));
+                producto.setText(r.getString("Producto"));
+                cantidad.setText(r.getString("Cantidad"));
+                precio.setText(r.getString("Precio_total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ultimaActionPerformed
+
+    private void nuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaActionPerformed
+        // TODO add your handling code here:
+        id.setText(null);
+        fecha.setText(null);
+        producto.setText(null);
+        cantidad.setText(null);
+        precio.setText(null);
+
+        producto.setEditable(true);
+        cantidad.setEditable(true);
+
+        primera.setEnabled(false);
+        ultima.setEnabled(false);
+        anterior.setEnabled(false);
+        siguiente.setEnabled(false);
+        volver.setEnabled(false);
+
+        insertar.setEnabled(true);
+        cancelar.setEnabled(true);
+    }//GEN-LAST:event_nuevaActionPerformed
+
+    private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
+        try {
+            String vId, vFecha, vProducto, vCantidad, vPrecio;
+            vId = id.getText();
+            vFecha = fecha.getText();
+            vProducto = producto.getText();
+            vCantidad = cantidad.getText();
+            vPrecio = precio.getText();
+            
+            String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
+            String user = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
+            String pass = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
+            connection = DriverManager.getConnection(url, user, pass);
+            
+            Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            
+            String query = "INSERT INTO Compras (Fecha, Producto, Cantidad, Precio_total) VALUES (CURDATE(), '" + vProducto + "', '" +vCantidad+ "', (SELECT SUM('"+ vCantidad +"'* P.Precio) FROM Productos P, Compras C WHERE P.Identificador = C.Producto)";
+            
+            int resultado = s.executeUpdate(query);
+            
+            insertar.setEnabled(false);
+            cancelar.setEnabled(false);
+            primera.setEnabled(true);
+            ultima.setEnabled(true);
+            anterior.setEnabled(true);
+            siguiente.setEnabled(true);
+            volver.setEnabled(true);
+            producto.setEditable(false);
+            cantidad.setEditable(false);
+            
+            String query2 = "SELECT C.*"
+        } catch (SQLException ex) {
+            Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_insertarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,16 +350,24 @@ public class Compras extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Compras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Compras.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -155,9 +381,11 @@ public class Compras extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
+    private javax.swing.JButton cancelar;
     private javax.swing.JTextField cantidad;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField id;
+    private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -74,21 +74,29 @@ public class Inventario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("Nombre: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 147, -1, -1));
+
+        nombre.setEditable(false);
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 144, 122, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel4.setText("Compañía: ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(272, 185, -1, -1));
+
+        compania.setEditable(false);
         getContentPane().add(compania, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 182, 122, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Precio: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 223, -1, -1));
+
+        precio.setEditable(false);
         getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 220, 122, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("Existencias: ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 261, -1, -1));
+
+        existencias.setEditable(false);
         getContentPane().add(existencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 258, 122, -1));
 
         nuevo.setText("Nuevo");

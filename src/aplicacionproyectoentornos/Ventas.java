@@ -44,6 +44,8 @@ public class Ventas extends javax.swing.JFrame {
         anterior = new javax.swing.JButton();
         primera = new javax.swing.JButton();
         ultima = new javax.swing.JButton();
+        insertar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
@@ -73,21 +75,29 @@ public class Ventas extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel3.setText("Fecha: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 141, -1, -1));
+
+        fecha.setEditable(false);
         getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 138, 132, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel4.setText("Producto: ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 179, -1, -1));
+
+        producto.setEditable(false);
         getContentPane().add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 176, 132, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel5.setText("Cantidad: ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 217, -1, -1));
+
+        cantidad.setEditable(false);
         getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 214, 132, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
         jLabel6.setText("Precio total: ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 255, -1, -1));
+
+        precio.setEditable(false);
         getContentPane().add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 252, 132, -1));
 
         nueva.setText("Nueva");
@@ -104,6 +114,14 @@ public class Ventas extends javax.swing.JFrame {
 
         ultima.setText("Última");
         getContentPane().add(ultima, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 315, -1, -1));
+
+        insertar.setText("Insertar");
+        insertar.setEnabled(false);
+        getContentPane().add(insertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 80, -1));
+
+        cancelar.setText("Cancelar");
+        cancelar.setEnabled(false);
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 80, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplicacionproyectoentornos/imagen_corporativa.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
@@ -155,9 +173,11 @@ public class Ventas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anterior;
+    private javax.swing.JButton cancelar;
     private javax.swing.JTextField cantidad;
     private javax.swing.JTextField fecha;
     private javax.swing.JTextField id;
+    private javax.swing.JButton insertar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
