@@ -300,12 +300,12 @@ public class Compras extends javax.swing.JFrame {
 
     private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
         try {
-            String vId, vFecha, vProducto, vCantidad, vPrecio;
-            vId = id.getText();
-            vFecha = fecha.getText();
+            String vProducto, vCantidad;
+            
+            
             vProducto = producto.getText();
             vCantidad = cantidad.getText();
-            vPrecio = precio.getText();
+            
             
             String url = "jdbc:mysql://localhost:3306/tienda_videojuegos";
             String user = "entornos"; //Cambiar a root y sin contraseña si no está creado el usuario "entornos"
@@ -314,7 +314,7 @@ public class Compras extends javax.swing.JFrame {
             
             Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             
-            String query = "INSERT INTO Compras (Fecha, Producto, Cantidad, Precio_total) VALUES (CURDATE(), '" + vProducto + "', '" +vCantidad+ "', (SELECT SUM('"+ vCantidad +"'* P.Precio) FROM Productos P, Compras C WHERE P.Identificador = C.Producto)";
+            String query = "INSERT INTO Compras (Fecha, Producto, Cantidad, Precio_total) VALUES (CURDATE(), " + vProducto + ", " +vCantidad+ ", (SELECT SUM("+ vCantidad +" * P.Precio) FROM Productos P, Compras C WHERE P.Identificador = " + vProducto + "))";
             
             int resultado = s.executeUpdate(query);
             
@@ -328,7 +328,15 @@ public class Compras extends javax.swing.JFrame {
             producto.setEditable(false);
             cantidad.setEditable(false);
             
-            String query2 = "SELECT C.*"
+            String query2 = "SELECT * FROM Compras";
+            r = s.executeQuery(query2);
+            r.first();
+            id.setText(r.getString("Identificador"));
+            fecha.setText(r.getString("Fecha"));
+            producto.setText(r.getString("Producto"));
+            cantidad.setText(r.getString("Cantidad"));
+            precio.setText(r.getString("Precio_total"));
+            
         } catch (SQLException ex) {
             Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
         }
